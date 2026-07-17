@@ -18,6 +18,9 @@ spec:
         - name: nginx
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env: 
+            - name: APP_ENV
+              value: {{ .Values.environment | quote }}
           ports:
             - name: http
               containerPort: {{ .Values.containerPort }}
