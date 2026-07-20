@@ -2,7 +2,7 @@ replicaCount: 5
 
 image:
   repository: nginx
-  tag: "not-exists"
+  tag: "1.27"
   pullPolicy: IfNotPresent
 
 service:
