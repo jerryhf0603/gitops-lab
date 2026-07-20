@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: demo-web-prod
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
 
