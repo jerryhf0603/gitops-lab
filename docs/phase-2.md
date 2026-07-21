@@ -160,13 +160,13 @@ push 後看 `root` 是否自動 sync，子 Application 是否更新。
 
 ## 2.8 過關標準
 
-- [ ] 只手動 apply 過 `bootstrap/root.yaml`
-- [ ] `applications/` 裡的 YAML 變更會透過 root 自動反映
-- [ ] 能說出 root 與子 Application 的關係
-- [ ] 知道 `nginx` 為何不受 root 管理（不在目錄裡）
+- [x] 只手動 apply 過 `bootstrap/root.yaml`
+- [x] `applications/` 裡的 YAML 變更會透過 root 自動反映
+- [x] 能說出 root 與子 Application 的關係
+- [x] 知道 `nginx` 為何不受 root 管理（不在目錄裡）
 
 ---
 
 ## 下一步
 
-Phase 2 過關後 → Phase 3：AppProject 權限邊界
+👉 [Phase 3：AppProject 權限邊界](./phase-3.md)
