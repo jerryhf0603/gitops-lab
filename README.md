@@ -21,20 +21,23 @@ docs/                    # 學習關卡說明
 |-------|------|------|------|
 | 0 | 從 0 安裝與驗證 GitOps 闭环 | [docs/phase-0.md](./docs/phase-0.md) | 完成 |
 | 1 | Application sync 行為 | [docs/phase-1.md](./docs/phase-1.md) | 完成 |
-| 2 | App of Apps | [docs/phase-2.md](./docs/phase-2.md) | 完成 |
-| 3 | AppProject 權限邊界 | [docs/phase-3.md](./docs/phase-3.md) | **進行中** |
+| 2 | App of Apps | [docs/phase-2.md](./docs/phase-2.md) | **進行中** |
+| 3 | AppProject 權限邊界 | 待補 | |
 | 4 | ApplicationSet | 待補 | |
 | 5 | sync-wave / hooks | 待補 | |
 | 6 | Image Updater / Notifications（選修） | 待補 | |
 
 ## 現在請做
 
-👉 **[Phase 3：AppProject](./docs/phase-3.md)**
+👉 **[Phase 2：App of Apps](./docs/phase-2.md)**
 
 ```bash
 kubectl config use-context k3d-argocd-lab
-kubectl apply -f projects/demo.yaml
-# 再把 applications/demo-web-*.yaml 的 project 改成 demo
+git add bootstrap/ docs/ README.md
+git commit -m "新增: Phase 2 App of Apps 關卡與 root Application"
+git push
+kubectl apply -f bootstrap/root.yaml
+argocd app get root
 ```
 
 > 注意：本機若有多個 kube context，務必先確認是 `k3d-argocd-lab`。
