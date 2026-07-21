@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: kube-system
+  project: demo
 
   source:
     repoURL: https://github.com/jerryhf0603/gitops-lab.git
@@ -19,7 +19,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: demo-dev
+    namespace: kube-system
 
   syncPolicy:
     automated:
