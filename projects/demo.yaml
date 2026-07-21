@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: demo
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: gitops-lab demo applications
+
+  # 允許部署到哪些 destination
+  destinations:
+    - namespace: demo-dev
+      server: https://kubernetes.default.svc
+    - namespace: demo-uat
+      server: https://kubernetes.default.svc
+    - namespace: demo-prod
+      server: https://kubernetes.default.svc
+    # Application CR 本身建在 argocd（App of Apps 需要）
+    - namespace: argocd
+      server: https://kubernetes.default.svc
+
+  # 允許使用哪些 Git repo
+  sourceRepos:
+    - https://github.com/jerryhf0603/gitops-lab.git
+
+  # 允許建立哪些 K8s 資源類型
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+  namespaceResourceWhitelist:
+    - group: "apps"
+      kind: Deployment
+    - group: ""
+      kind: Service
+    - group: ""
+      kind: ConfigMap
+    - group: ""
+      kind: ServiceAccount
+    - group: "argoproj.io"
+      kind: Application
+
+  # 明確禁止（可選，示範用）
+  namespaceResourceBlacklist: []
